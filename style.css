@@ -1,0 +1,521 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+body {
+  margin: 0;
+}
+
+footer{
+  color:blue;
+}
+
+/***********MENU***************/
+
+.body_1 a {
+  font-family: "Courier Prime", monospace;
+  text-decoration: none;
+  font-weight: 700;
+  color: #c6cde5;
+}
+
+.body_1 a:hover {
+  color: #0000ff;
+}
+
+.body_1 header {
+  position: sticky;
+  top: 0;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 2px 5px 0px white;
+  background: blue;
+}
+
+.body_1 header .logo a {
+  font-size: 3rem;
+  font-family: "Courier Prime", monospace;
+}
+
+.body_1 header .logo {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.body_1 header nav ul {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 0.5rem;
+  list-style: none;
+  overflow-x: auto;
+}
+
+/***********MENU SLUT***************/
+
+/***********IDE START***************/
+
+.body_1 #first_section {
+  grid-column: 1/4;
+  width: 100%;
+  height: 100vh;
+  background-image: url(undersider/Ide_simone_kragh-jacobsen.pdf);
+  background-size: cover;
+  background-position: 35% 10%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+/***********IDE START***************/
+
+#screen {
+  width: 100vw;
+  height: 56.25vw;
+  position: relative;
+  overflow: hidden;
+}
+
+#game {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#game_background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  background-image: url(svg/baggrund.svg);
+  background-size: cover;
+}
+
+#game_elements {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#bad_container1 {
+  position: absolute;
+}
+
+#bad_sprite1 {
+  width: 5vw;
+  height: 5vw;
+  background-image: url(svg/good1.svg);
+  background-size: cover;
+}
+
+#bad_container2 {
+  position: absolute;
+}
+
+#bad_sprite2 {
+  width: 5vw;
+  height: 5vw;
+  background-image: url(svg/good2.svg);
+  background-size: cover;
+}
+
+#bad_container3 {
+  position: absolute;
+}
+
+#bad_sprite3 {
+  width: 5vw;
+  height: 5vw;
+  background-image: url(svg/good3.svg);
+  background-size: cover;
+}
+
+#good_container1 {
+  position: absolute;
+}
+
+#good_sprite1 {
+  width: 4.2vw;
+  height: 6vw;
+  background-image: url(svg/bad1.svg);
+  background-size: cover;
+}
+
+#good_container2 {
+  position: absolute;
+}
+
+#good_sprite2 {
+  width: 4.2vw;
+  height: 6vw;
+  background-image: url(svg/bad2.svg);
+  background-size: cover;
+}
+
+#good_container3 {
+  position: absolute;
+}
+
+#good_sprite3 {
+  width: 4.2vw;
+  height: 6vw;
+  background-image: url(svg/bad3.svg);
+  background-size: cover;
+}
+
+#score_board {
+  position: absolute;
+  top: 24vw;
+  right: 3.7vw;
+  font-size: 3vw;
+  font-family: monospace;
+}
+
+#energy_board {
+  position: absolute;
+  top: 1vw;
+  left: 1vw;
+  display: flex;
+  gap: 0.1vw;
+}
+
+#energy_board img {
+  width: 6vw;
+}
+
+#game_foreground {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-image: url(svg/forgrund.svg);
+  background-size: cover;
+  pointer-events: none;
+}
+
+#game_ui {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+#time_board {
+}
+
+#tid_sprite {
+  width: 2vw;
+  height: 19.2vw;
+  background-color: blue;
+  transform-origin: right bottom;
+  border-radius: 10px;
+}
+
+#tid_container {
+  position: absolute;
+  top: 2vw;
+  left: 93.5vw;
+  width: 3vw;
+  height: 20vw;
+  border: 4px solid black;
+  border-radius: 15px;
+}
+
+.tid {
+  animation-name: time_kf;
+  animation-duration: 20s;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+
+@keyframes time_kf {
+  0% {
+    transform: scaleY(1);
+    background-color: blue;
+  }
+
+  100% {
+    transform: scaleY(0);
+    background-color: white;
+  }
+}
+
+#start {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url(svg/start.svg);
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-color: white;
+}
+
+#start_info {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url(svg/info.svg);
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-color: white;
+}
+
+#start_knap,
+#start_knap2 {
+  position: absolute;
+  width: 21vw;
+  height: 8vw;
+  top: 31vw;
+  left: 40vw;
+
+  font-size: 4vw;
+  padding: 2vw;
+  font-family: sans-serif;
+  background-image: url(svg/spilknap.svg);
+  background-size: cover;
+}
+
+#game_over {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url(svg/gameover.svg);
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-color: white;
+}
+
+#genstart1 {
+  position: absolute;
+  width: 30vw;
+  height: 8vw;
+  top: 37vw;
+  left: 38vw;
+  font-size: 4vw;
+  padding: 2vw;
+  font-family: monospace;
+  background-image: url(svg/spil_igen.svg);
+  background-size: cover;
+}
+
+#game_over_points {
+  position: absolute;
+  width: 1vw;
+  height: 3vw;
+  top: 18.35vw;
+  left: 44.7vw;
+  font-size: 2.4vw;
+  color: white;
+  font-family: monospace;
+}
+
+#point_gameover {
+  position: absolute;
+  width: 14vw;
+  height: 3vw;
+  top: 12vw;
+  left: 10vw;
+  font-size: 4vw;
+  padding: 2vw;
+  font-family: monospace;
+  background-size: cover;
+}
+
+#level_complete {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url(svg/winner.svg);
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-color: white;
+}
+
+#genstart2 {
+  position: absolute;
+  width: 22.7vw;
+  height: 22.7vw;
+  top: 17.9vw;
+  left: 54.4vw;
+  font-size: 4vw;
+  padding: 2vw;
+  font-family: sans-serif;
+  background-image: url(svg/spil_igen_2.svg);
+  background-size: cover;
+}
+
+#level_complete_points {
+  position: absolute;
+  width: 1vw;
+  height: 3vw;
+  top: 16.2vw;
+  left: 45.5vw;
+  font-size: 3vw;
+  color: white;
+}
+
+#point_level_complete {
+  position: absolute;
+  width: 14vw;
+  height: 3vw;
+  top: 12vw;
+  left: 10vw;
+  font-size: 4vw;
+  padding: 2vw;
+  font-family: sans-serif;
+
+  background-size: cover;
+}
+
+.skjul {
+  display: none;
+}
+
+/*-------------------------------------------------------------*/
+
+.pos1 {
+  top: 13vw;
+  left: 32vw;
+}
+
+.pos2 {
+  top: 13vw;
+  left: 49.5vw;
+}
+
+.pos3 {
+  top: 13vw;
+  left: 67vw;
+}
+
+.pos4 {
+  top: 25vw;
+  left: 32vw;
+}
+
+.pos5 {
+  top: 25vw;
+  left: 49.5vw;
+}
+
+.pos6 {
+  top: 25vw;
+  left: 67vw;
+}
+
+.pos7 {
+  top: 37vw;
+  left: 32vw;
+}
+
+.pos8 {
+  top: 37vw;
+  left: 49.5vw;
+}
+
+.pos9 {
+  top: 37vw;
+  left: 67vw;
+}
+
+.fade_in {
+  animation-name: fade_in;
+  animation-duration: 3s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-fill-mode: both;
+}
+
+@keyframes fade_in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.forsvind {
+  animation-name: forsvind_kf;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+
+@keyframes forsvind_kf {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.forsvind_roter {
+  animation-name: forsvind_roter_kf;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+
+@keyframes forsvind_roter_kf {
+  100% {
+    transform: scale(0) rotate(360deg);
+  }
+}
+
+.gray {
+  filter: grayscale(100%);
+}
+
+.delay1 {
+  animation-delay: 1s;
+}
+
+.delay2 {
+  animation-delay: 3s;
+}
+
+.delay3 {
+  animation-delay: 6s;
+}
+
+.speed1 {
+  animation-duration: 2s;
+}
+
+.speed2 {
+  animation-duration: 4s;
+}
+
+.speed3 {
+  animation-duration: 6;
+}

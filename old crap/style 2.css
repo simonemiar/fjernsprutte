@@ -1,0 +1,569 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+#screen {
+    position: relative;
+    width: 100vw;
+    height: 56.25vw;
+    overflow: hidden;
+}
+
+#game {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: crosshair;
+}
+
+#game_background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: aqua;
+}
+
+#start {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: lightpink;
+    z-index: 50;
+}
+
+#start_txt {
+    position: absolute;
+    top: 13vw;
+    left: 6vw;
+    font-size: 4vw;
+    font-family: monospace;
+}
+
+#start_knap {
+    position: absolute;
+    top: 33vw;
+    left: 43vw;
+    font-size: 4vw;
+    padding: 2vw;
+    font-family: monospace;
+    background-color: blueviolet;
+    cursor: pointer;
+
+    animation-name: puls_kf;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-direction: alternate;
+}
+
+@keyframes puls_kf {
+    0% {
+        transform: scale(0.8);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+#game_over {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: darkred;
+    z-index: 50;
+}
+
+#game_over_txt {
+    position: absolute;
+    top: 13vw;
+    left: 29vw;
+    font-size: 9vw;
+    font-family: monospace;
+}
+
+#game_over_points {
+    position: absolute;
+    top: 29vw;
+    left: 32vw;
+    font-size: 4vw;
+    font-family: monospace;
+}
+
+#genstart1 {
+    position: absolute;
+    top: 37vw;
+    left: 40vw;
+    font-size: 4vw;
+    padding: 2vw;
+    font-family: monospace;
+    background-color: darkcyan;
+
+    animation-name: puls_kf;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-direction: alternate;
+}
+
+#level_complete {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: orange;
+    z-index: 50;
+}
+
+#level_complete_txt {
+    position: absolute;
+    top: 13vw;
+    left: 8vw;
+    font-size: 8vw;
+    font-family: monospace;
+}
+
+#level_complete_points {
+    position: absolute;
+    top: 29vw;
+    left: 32vw;
+    font-size: 4vw;
+    font-family: monospace;
+}
+
+#genstart2 {
+    position: absolute;
+    top: 37vw;
+    left: 37vw;
+    font-size: 4vw;
+    padding: 2vw;
+    font-family: monospace;
+    background-color: lightskyblue;
+
+    animation-name: puls_kf;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-direction: alternate;
+}
+
+.skjul {
+    display: none;
+}
+
+/******************   game_elements  ************************/
+#game_elements {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#red_container1,
+#red_container2 {
+    position: absolute;
+}
+
+#red_sprite1,
+#red_sprite2 {
+    background-image: url(smile_red.svg);
+    background-size: 100%;
+}
+
+#blue_container1 {
+    position: absolute;
+
+}
+
+#blue_sprite1 {
+    background-image: url(smile_blue.svg);
+    background-size: 100%;
+}
+
+
+/******************   game_ui  ************************/
+#game_ui {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+#score_board {
+    position: absolute;
+    bottom: 1vw;
+    right: 1vw;
+    font-size: 3vw;
+    font-family: monospace;
+}
+
+#energy_board {
+    position: absolute;
+    bottom: 1vw;
+    left: 1vw;
+    display: flex;
+    gap: 0.5vw;
+}
+
+#energy_board img {
+    width: 5vw;
+}
+
+.gray {
+    filter: grayscale(80%);
+}
+
+#time_container {
+    position: absolute;
+    width: 3vw;
+    height: 20vw;
+    top: 5vw;
+    left: 95vw;
+    border: 2px solid white;
+}
+
+#time_sprite {
+    width: 2.8vw;
+    height: 19.8vw;
+    transform-origin: 50% 100%;
+    background-color: lime;
+}
+
+.time {
+    animation-name: time_kf;
+    animation-duration: 20s;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+}
+
+@keyframes time_kf {
+    0% {
+        transform: scaleY(1);
+        background-color: lime;
+    }
+
+    50% {
+        transform: scaleY(0.5);
+        background-color: yellow;
+    }
+
+    100% {
+        transform: scaleY(0);
+        background-color: red;
+    }
+}
+
+/******************   delay  ************************/
+
+.delay1 {
+    animation-delay: 0s;
+}
+
+.delay2 {
+    animation-delay: 0.5s;
+}
+
+.delay3 {
+    animation-delay: 1s;
+}
+
+.delay4 {
+    animation-delay: 1.5s;
+}
+
+/******************   positioner  ************************/
+
+.pos1 {
+    top: 15.5vw;
+    left: 25.5vw;
+    z-index: 5;
+    animation-name: op_ned_lille_kf;
+}
+
+.pos1 > div {
+    width: 5vw;
+    height: 5vw;
+}
+
+#box1 {
+    position: absolute;
+    top: 15vw;
+    left: 25vw;
+    width: 6vw;
+    height: 6vw;
+    background-color: darkgreen;
+    z-index: 10;
+}
+
+.pos2 {
+    top: 15.5vw;
+    left: 55.5vw;
+    z-index: 5;
+    animation-name: op_ned_lille_kf;
+}
+
+.pos2 > div {
+    width: 5vw;
+    height: 5vw;
+}
+
+#box2 {
+    position: absolute;
+    top: 15vw;
+    left: 55vw;
+    width: 6vw;
+    height: 6vw;
+    background-color: darkgreen;
+    z-index: 10;
+}
+
+.pos3 {
+    top: 25.5vw;
+    left: 15.5vw;
+    z-index: 15;
+    animation-name: op_ned_mellem_kf;
+}
+
+.pos3 > div {
+    width: 8vw;
+    height: 8vw;
+}
+
+#box3 {
+    position: absolute;
+    top: 25vw;
+    left: 15vw;
+    width: 9vw;
+    height: 9vw;
+    background-color: green;
+    z-index: 20;
+}
+
+.pos4 {
+    top: 25.5vw;
+    left: 40.5vw;
+    z-index: 15;
+    animation-name: op_ned_mellem_kf;
+}
+
+.pos4 > div {
+    width: 8vw;
+    height: 8vw;
+}
+
+#box4 {
+    position: absolute;
+    top: 25vw;
+    left: 40vw;
+    width: 9vw;
+    height: 9vw;
+    background-color: green;
+    z-index: 20;
+}
+
+.pos5 {
+    top: 41.5vw;
+    left: 36vw;
+    z-index: 25;
+    animation-name: op_ned_stor_kf;
+}
+
+.pos5 > div {
+    width: 10vw;
+    height: 10vw;
+}
+
+#box5 {
+    position: absolute;
+    top: 40vw;
+    left: 35vw;
+    width: 12vw;
+    height: 12vw;
+    background-color: olivedrab;
+    z-index: 30;
+}
+
+.pos6 {
+    top: 41.5vw;
+    left: 66vw;
+    z-index: 25;
+    animation-name: op_ned_stor_kf;
+}
+
+.pos6 > div {
+    width: 10vw;
+    height: 10vw;
+}
+
+#box6 {
+    position: absolute;
+    top: 40vw;
+    left: 65vw;
+    width: 12vw;
+    height: 12vw;
+    background-color: olivedrab;
+    z-index: 30;
+}
+
+/******************   animationer  ************************/
+
+.frys {
+    animation-play-state: paused;
+}
+
+.forsvind {
+    animation-name: forsvind_kf;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+}
+
+@keyframes forsvind_kf {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+.flyv {
+    animation-name: flyv_kf;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+}
+
+@keyframes flyv_kf {
+    100% {
+        transform: translateX(120vw);
+    }
+}
+
+.op_ned {
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+}
+
+.speed1 {
+    animation-duration: 2s;
+}
+
+.speed2 {
+    animation-duration: 1.5s;
+}
+
+.speed3 {
+    animation-duration: 1s;
+}
+
+@keyframes op_ned_stor_kf {
+    0% {
+        transform: translateY(0);
+    }
+
+    10% {
+        transform: translateY(0);
+    }
+
+    45% {
+        transform: translateY(-11.5vw);
+    }
+
+    50% {
+        transform: translateY(-11.5vw);
+    }
+
+    55% {
+        transform: translateY(-11.5vw);
+    }
+
+    90% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes op_ned_mellem_kf {
+    0% {
+        transform: translateY(0);
+    }
+
+    10% {
+        transform: translateY(0);
+    }
+
+    45% {
+        transform: translateY(-8.5vw);
+    }
+
+    50% {
+        transform: translateY(-8.5vw);
+    }
+
+    55% {
+        transform: translateY(-8.5vw);
+    }
+
+    90% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes op_ned_lille_kf {
+    0% {
+        transform: translateY(0);
+    }
+
+    10% {
+        transform: translateY(0);
+    }
+
+    45% {
+        transform: translateY(-5.5vw);
+    }
+
+    50% {
+        transform: translateY(-5.5vw);
+    }
+
+    55% {
+        transform: translateY(-5.5vw);
+    }
+
+    90% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
