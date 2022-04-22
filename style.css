@@ -19,6 +19,8 @@ body {
 
 footer{
   color:blue;
+  font-family: 'Courier New', Courier, monospace;
+  text-align: center;
 }
 
 /***********MENU***************/
@@ -65,21 +67,7 @@ footer{
 
 /***********MENU SLUT***************/
 
-/***********IDE START***************/
 
-.body_1 #first_section {
-  grid-column: 1/4;
-  width: 100%;
-  height: 100vh;
-  background-image: url(undersider/Ide_simone_kragh-jacobsen.pdf);
-  background-size: cover;
-  background-position: 35% 10%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-}
-
-/***********IDE START***************/
 
 #screen {
   width: 100vw;
@@ -186,6 +174,7 @@ footer{
   right: 3.7vw;
   font-size: 3vw;
   font-family: monospace;
+  color: blue;
 }
 
 #energy_board {
@@ -224,20 +213,20 @@ footer{
 }
 
 #tid_sprite {
-  width: 2vw;
+  width: 3.5vw;
   height: 19.2vw;
   background-color: blue;
   transform-origin: right bottom;
-  border-radius: 10px;
+  border-radius: 10px 10px 0px 0px;
 }
 
 #tid_container {
   position: absolute;
   top: 2vw;
-  left: 93.5vw;
+  left: 93.6vw;
   width: 3vw;
   height: 20vw;
-  border: 4px solid black;
+  /* border: 4px solid black; */
   border-radius: 15px;
 }
 
@@ -256,7 +245,7 @@ footer{
 
   100% {
     transform: scaleY(0);
-    background-color: white;
+    background-color: red;
   }
 }
 
